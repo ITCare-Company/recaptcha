@@ -18,7 +18,7 @@ class ReCaptchaAdminSettingsForm extends ConfigFormBase {
   /**
    * {@inheritdoc}
    */
-  public function getFormID() {
+  public function getFormId() {
     return 'recaptcha_admin_settings';
   }
 
