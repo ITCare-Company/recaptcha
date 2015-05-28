@@ -85,6 +85,16 @@ class ReCaptchaAdminSettingsForm extends ConfigFormBase {
       '#title' => t('Type'),
       '#type' => 'select',
     ];
+    $form['widget']['recaptcha_size'] = [
+      '#default_value' => $config->get('widget.size'),
+      '#description' => t('The size of CAPTCHA to serve.'),
+      '#options' => [
+        '' => t('Normal (default)'),
+        'small' => t('Small'),
+      ],
+      '#title' => t('Size'),
+      '#type' => 'select',
+    ];
     $form['widget']['recaptcha_tabindex'] = [
       '#default_value' => $config->get('widget.tabindex'),
       '#description' => t('Set the <a href="@tabindex">tabindex</a> of the widget and challenge (Default = 0). If other elements in your page use tabindex, it should be set to make user navigation easier.', ['@tabindex' => Url::fromUri('http://www.w3.org/TR/html4/interact/forms.html', ['fragment' => 'adef-tabindex'])->toString()]),

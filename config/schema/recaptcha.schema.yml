@@ -20,6 +20,9 @@ recaptcha.settings:
         type:
           type: string
           label: 'Type'
+        size:
+          type: string
+          label: 'Size'
         tabindex:
           type: integer
           label: 'Tabindex'
