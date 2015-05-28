@@ -147,6 +147,7 @@ class ReCaptchaBasicTest extends WebTestBase {
 
     // Check that data-size attribute does not exists.
     $this->config('recaptcha.settings')->set('widget.size', '')->save();
+    $this->drupalGet('user/login');
     $element = $this->xpath('//div[@class=:class and @data-size=:size]', [':class' => 'g-recaptcha', ':size' => 'small']);
     $this->assertFalse(!empty($element), 'Tag contains no data-size attribute.');
 
@@ -158,6 +159,7 @@ class ReCaptchaBasicTest extends WebTestBase {
 
     // Check that data-tabindex attribute does not exists.
     $this->config('recaptcha.settings')->set('widget.tabindex', 0)->save();
+    $this->drupalGet('user/login');
     $element = $this->xpath('//div[@class=:class and @data-tabindex=:index]', [':class' => 'g-recaptcha', ':index' => 0]);
     $this->assertFalse(!empty($element), 'Tag contains no data-tabindex attribute.');
 
