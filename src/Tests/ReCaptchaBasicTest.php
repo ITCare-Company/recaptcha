@@ -145,6 +145,28 @@ class ReCaptchaBasicTest extends WebTestBase {
     $this->assertRaw($grecaptcha . "\n" . '<noscript>', '[testReCaptchaOnLoginForm]: NoScript for reCAPTCHA is shown on form.');
     $this->assertRaw('https://www.google.com/recaptcha/api/fallback?k=' . $site_key . '&amp;hl=' . \Drupal::service('language_manager')->getCurrentLanguage()->getId(), '[testReCaptchaOnLoginForm]: Fallback URL with IFRAME has been found.');
 
+    // Check that data-size attribute does not exists.
+    $this->config('recaptcha.settings')->set('widget.size', '')->save();
+    $element = $this->xpath('//div[@class=:class and @data-size=:size]', [':class' => 'g-recaptcha', ':size' => 'small']);
+    $this->assertFalse(!empty($element), 'Tag contains no data-size attribute.');
+
+    // Check that data-size attribute exists.
+    $this->config('recaptcha.settings')->set('widget.size', 'small')->save();
+    $this->drupalGet('user/login');
+    $element = $this->xpath('//div[@class=:class and @data-size=:size]', [':class' => 'g-recaptcha', ':size' => 'small']);
+    $this->assertTrue(!empty($element), 'Tag contains data-size attribute and value.');
+
+    // Check that data-tabindex attribute does not exists.
+    $this->config('recaptcha.settings')->set('widget.tabindex', 0)->save();
+    $element = $this->xpath('//div[@class=:class and @data-tabindex=:index]', [':class' => 'g-recaptcha', ':index' => 0]);
+    $this->assertFalse(!empty($element), 'Tag contains no data-tabindex attribute.');
+
+    // Check that data-tabindex attribute exists.
+    $this->config('recaptcha.settings')->set('widget.tabindex', 5)->save();
+    $this->drupalGet('user/login');
+    $element = $this->xpath('//div[@class=:class and @data-tabindex=:index]', [':class' => 'g-recaptcha', ':index' => 5]);
+    $this->assertTrue(!empty($element), 'Tag contains data-tabindex attribute and value.');
+
     // Try to log in, which should fail.
     $edit['name'] = $this->normal_user->getUsername();
     $edit['pass'] = $this->normal_user->getPassword();
