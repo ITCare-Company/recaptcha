@@ -90,7 +90,7 @@ class ReCaptchaAdminSettingsForm extends ConfigFormBase {
       '#description' => t('The size of CAPTCHA to serve.'),
       '#options' => [
         '' => t('Normal (default)'),
-        'small' => t('Small'),
+        'compact' => t('Compact'),
       ],
       '#title' => t('Size'),
       '#type' => 'select',
