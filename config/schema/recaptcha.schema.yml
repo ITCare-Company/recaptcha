@@ -1,7 +1,7 @@
 # Schema for the configuration files of the recaptcha module.
 
 recaptcha.settings:
-  type: mapping
+  type: config_object
   label: 'reCAPTCHA settings'
   mapping:
     site_key:
