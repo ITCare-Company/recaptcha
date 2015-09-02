@@ -13,7 +13,7 @@ use ReCaptcha\RequestParameters;
 /**
  * Sends POST requests to the reCAPTCHA service with Drupal 8 httpClient.
  */
-class Drupal8 implements RequestMethod {
+class Drupal8Post implements RequestMethod {
 
   /**
    * URL to which requests are POSTed.

@@ -13,7 +13,7 @@ require_once dirname(__FILE__) . '/recaptcha-php/src/ReCaptcha/ReCaptcha.php';
 require_once dirname(__FILE__) . '/recaptcha-php/src/ReCaptcha/RequestMethod.php';
 require_once dirname(__FILE__) . '/recaptcha-php/src/ReCaptcha/RequestParameters.php';
 require_once dirname(__FILE__) . '/recaptcha-php/src/ReCaptcha/Response.php';
-require_once dirname(__FILE__) . '/src/ReCaptcha/RequestMethod/Drupal8.php';
+require_once dirname(__FILE__) . '/src/ReCaptcha/RequestMethod/Drupal8Post.php';
 
 /**
  * Implements hook_help().
@@ -132,7 +132,7 @@ function recaptcha_captcha_validation($solution, $response, $element, $form_stat
   }
 
   // Use Drupal::httpClient() to circumvent all issues with the Google library.
-  $recaptcha = new \ReCaptcha\ReCaptcha($recaptcha_secret_key, new \ReCaptcha\RequestMethod\Drupal8());
+  $recaptcha = new \ReCaptcha\ReCaptcha($recaptcha_secret_key, new \ReCaptcha\RequestMethod\Drupal8Post());
 
   $resp = $recaptcha->verify(
     $_POST['g-recaptcha-response'],
