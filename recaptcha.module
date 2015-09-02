@@ -13,9 +13,6 @@ require_once dirname(__FILE__) . '/recaptcha-php/src/ReCaptcha/ReCaptcha.php';
 require_once dirname(__FILE__) . '/recaptcha-php/src/ReCaptcha/RequestMethod.php';
 require_once dirname(__FILE__) . '/recaptcha-php/src/ReCaptcha/RequestParameters.php';
 require_once dirname(__FILE__) . '/recaptcha-php/src/ReCaptcha/Response.php';
-require_once dirname(__FILE__) . '/recaptcha-php/src/ReCaptcha/RequestMethod/Post.php';
-require_once dirname(__FILE__) . '/recaptcha-php/src/ReCaptcha/RequestMethod/Socket.php';
-require_once dirname(__FILE__) . '/recaptcha-php/src/ReCaptcha/RequestMethod/SocketPost.php';
 require_once dirname(__FILE__) . '/src/ReCaptcha/RequestMethod/Drupal8.php';
 
 /**
