@@ -53,7 +53,7 @@ class ReCaptchaBasicTest extends WebTestBase {
   /**
    * Test access to the administration page.
    */
-  function testReCaptchaAdminAccess() {
+  public function testReCaptchaAdminAccess() {
     $this->drupalLogin($this->admin_user);
     $this->drupalGet('admin/config/people/captcha/recaptcha');
     $this->assertNoText(t('Access denied'), 'Admin users should be able to access the reCAPTCHA admin page', 'reCAPTCHA');
@@ -63,7 +63,7 @@ class ReCaptchaBasicTest extends WebTestBase {
   /**
    * Test the reCAPTCHA settings form.
    */
-  function testReCaptchaAdminSettingsForm() {
+  public function testReCaptchaAdminSettingsForm() {
     $this->drupalLogin($this->admin_user);
 
     $site_key = $this->randomMachineName(40);
@@ -96,7 +96,7 @@ class ReCaptchaBasicTest extends WebTestBase {
   /**
    * Testing the protection of the user login form.
    */
-  function testReCaptchaOnLoginForm() {
+  public function testReCaptchaOnLoginForm() {
     $site_key = $this->randomMachineName(40);
     $secret_key = $this->randomMachineName(40);
     $grecaptcha = '<div class="g-recaptcha" data-sitekey="' . $site_key . '" data-theme="light" data-type="image"></div>';
