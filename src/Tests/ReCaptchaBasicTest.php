@@ -14,6 +14,7 @@ use Drupal\simpletest\WebTestBase;
  * Test basic functionality of reCAPTCHA module.
  *
  * @group reCAPTCHA
+ *
  * @dependencies captcha
  */
 class ReCaptchaBasicTest extends WebTestBase {

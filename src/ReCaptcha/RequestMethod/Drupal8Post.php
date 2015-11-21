@@ -17,6 +17,7 @@ class Drupal8Post implements RequestMethod {
 
   /**
    * URL to which requests are POSTed.
+   *
    * @const string
    */
   const SITE_VERIFY_URL = 'https://www.google.com/recaptcha/api/siteverify';
@@ -24,8 +25,11 @@ class Drupal8Post implements RequestMethod {
   /**
    * Submit the POST request with the specified parameters.
    *
-   * @param RequestParameters $params Request parameters
-   * @return string Body of the reCAPTCHA response
+   * @param RequestParameters $params
+   *   Request parameters
+   *
+   * @return string
+   *   Body of the reCAPTCHA response
    */
   public function submit(RequestParameters $params) {
 
@@ -45,4 +49,5 @@ class Drupal8Post implements RequestMethod {
 
     return (string) $response->getBody();
   }
+
 }
