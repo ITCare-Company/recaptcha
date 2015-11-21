@@ -23,7 +23,3 @@ process:
 destination:
   plugin: config
   config_name: recaptcha.settings
-dependencies:
-  module:
-    - recaptcha
-    - migrate_drupal
