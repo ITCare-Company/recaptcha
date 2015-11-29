@@ -18,5 +18,7 @@
     "source": "http://git.drupal.org/project/recaptcha.git"
   },
   "license": "GPL-2.0+",
-  "require": {}
+  "require": {
+    captcha/captcha: "dev"
+  }
 }
