@@ -101,6 +101,7 @@ class ReCaptchaAdminSettingsForm extends ConfigFormBase {
       '#maxlength' => 4,
       '#title' => $this->t('Tabindex'),
       '#type' => 'number',
+      '#min' => -1,
     ];
     $form['widget']['recaptcha_noscript'] = [
       '#default_value' => $config->get('widget.noscript'),
