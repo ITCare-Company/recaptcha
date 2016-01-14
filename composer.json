@@ -19,6 +19,6 @@
   },
   "license": "GPL-2.0+",
   "require": {
-    captcha/captcha: "dev"
+    "drupal/captcha": "dev"
   }
 }
