@@ -1,8 +1,4 @@
 <?php
-/**
- * @file
- * Contains \Drupal\recaptcha\Form\ReCaptchaAdminSettingsForm.
- */
 
 namespace Drupal\recaptcha\Form;
 
