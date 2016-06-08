@@ -2,6 +2,7 @@
 
 namespace ReCaptcha\RequestMethod;
 
+use GuzzleHttp\Exception\RequestException;
 use ReCaptcha\RequestMethod;
 use ReCaptcha\RequestParameters;
 
@@ -40,6 +41,7 @@ class Drupal8Post implements RequestMethod {
     }
     catch (RequestException $exception) {
       \Drupal::logger('reCAPTCHA web service')->error($exception);
+      return '';
     }
 
     return (string) $response->getBody();
