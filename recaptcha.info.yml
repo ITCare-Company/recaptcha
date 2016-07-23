@@ -2,7 +2,6 @@ name: 'reCAPTCHA'
 type: module
 description: 'Protect your website from spam and abuse while letting real people pass through with ease.'
 package: Spam control
-version: VERSION
 core: 8.x
 configure: recaptcha.admin_settings_form
 dependencies:
