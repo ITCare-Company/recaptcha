@@ -22,10 +22,10 @@ class Drupal8Post implements RequestMethod {
    * Submit the POST request with the specified parameters.
    *
    * @param RequestParameters $params
-   *   Request parameters
+   *   Request parameters.
    *
    * @return string
-   *   Body of the reCAPTCHA response
+   *   Body of the reCAPTCHA response.
    */
   public function submit(RequestParameters $params) {
 
