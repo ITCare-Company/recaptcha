@@ -39,7 +39,7 @@ class ReCaptchaAdminSettingsForm extends ConfigFormBase {
 
     $form['general']['recaptcha_site_key'] = [
       '#default_value' => $config->get('site_key'),
-      '#description' => $this->t('The site key given to you when you <a href=":url">register for reCAPTCHA</a>.', [':url' => 'http://www.google.com/recaptcha/admin']),
+      '#description' => $this->t('The site key given to you when you <a href=":url">register for reCAPTCHA</a>.', [':url' => 'https://www.google.com/recaptcha/admin']),
       '#maxlength' => 40,
       '#required' => TRUE,
       '#title' => $this->t('Site key'),
@@ -48,7 +48,7 @@ class ReCaptchaAdminSettingsForm extends ConfigFormBase {
 
     $form['general']['recaptcha_secret_key'] = [
       '#default_value' => $config->get('secret_key'),
-      '#description' => $this->t('The secret key given to you when you <a href=":url">register for reCAPTCHA</a>.', [':url' => 'http://www.google.com/recaptcha/admin']),
+      '#description' => $this->t('The secret key given to you when you <a href=":url">register for reCAPTCHA</a>.', [':url' => 'https://www.google.com/recaptcha/admin']),
       '#maxlength' => 40,
       '#required' => TRUE,
       '#title' => $this->t('Secret key'),
@@ -93,7 +93,7 @@ class ReCaptchaAdminSettingsForm extends ConfigFormBase {
     ];
     $form['widget']['recaptcha_tabindex'] = [
       '#default_value' => $config->get('widget.tabindex'),
-      '#description' => $this->t('Set the <a href=":tabindex">tabindex</a> of the widget and challenge (Default = 0). If other elements in your page use tabindex, it should be set to make user navigation easier.', [':tabindex' => Url::fromUri('http://www.w3.org/TR/html4/interact/forms.html', ['fragment' => 'adef-tabindex'])->toString()]),
+      '#description' => $this->t('Set the <a href=":tabindex">tabindex</a> of the widget and challenge (Default = 0). If other elements in your page use tabindex, it should be set to make user navigation easier.', [':tabindex' => Url::fromUri('https://www.w3.org/TR/html4/interact/forms.html', ['fragment' => 'adef-tabindex'])->toString()]),
       '#maxlength' => 4,
       '#title' => $this->t('Tabindex'),
       '#type' => 'number',
