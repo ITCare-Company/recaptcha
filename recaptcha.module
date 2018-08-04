@@ -82,6 +82,10 @@ function recaptcha_captcha($op, $captcha_type = '') {
             '#value' => 'Google no captcha',
           ];
 
+          // As the validate callback does not depend on sid or solution, this
+          // captcha type can be displayed on cached pages.
+          $captcha['cacheable'] = TRUE;
+
           $noscript = '';
           if ($config->get('widget.noscript')) {
             $recaptcha_widget_noscript = [
