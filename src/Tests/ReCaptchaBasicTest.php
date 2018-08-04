@@ -2,6 +2,8 @@
 
 namespace Drupal\recaptcha\Tests;
 
+use Drupal\Core\Url;
+use Drupal\Component\Utility\Html;
 use Drupal\simpletest\WebTestBase;
 
 /**
@@ -125,7 +127,7 @@ class ReCaptchaBasicTest extends WebTestBase {
     // Check if there is a reCAPTCHA on the login form.
     $this->drupalGet('user/login');
     $this->assertRaw($grecaptcha, '[testReCaptchaOnLoginForm]: reCAPTCHA is shown on form.');
-    $this->assertRaw('<script src="https://www.google.com/recaptcha/api.js?hl=' . \Drupal::service('language_manager')->getCurrentLanguage()->getId() . '" async defer></script>', '[testReCaptchaOnLoginForm]: reCAPTCHA is shown on form.');
+    $this->assertRaw('<script src="' . Url::fromUri('https://www.google.com/recaptcha/api.js', ['query' => ['hl' => \Drupal::service('language_manager')->getCurrentLanguage()->getId()], 'absolute' => TRUE])->toString() . '" async defer></script>', '[testReCaptchaOnLoginForm]: reCAPTCHA is shown on form.');
     $this->assertNoRaw($grecaptcha . '<noscript>', '[testReCaptchaOnLoginForm]: NoScript code is not enabled for the reCAPTCHA.');
 
     // Test if the fall back url is properly build and noscript code added.
@@ -133,7 +135,7 @@ class ReCaptchaBasicTest extends WebTestBase {
 
     $this->drupalGet('user/login');
     $this->assertRaw($grecaptcha . "\n" . '<noscript>', '[testReCaptchaOnLoginForm]: NoScript for reCAPTCHA is shown on form.');
-    $this->assertRaw('https://www.google.com/recaptcha/api/fallback?k=' . $site_key . '&amp;hl=' . \Drupal::service('language_manager')->getCurrentLanguage()->getId(), '[testReCaptchaOnLoginForm]: Fallback URL with IFRAME has been found.');
+    $this->assertRaw(Html::escape(Url::fromUri('https://www.google.com/recaptcha/api/fallback', ['query' => ['k' => $site_key, 'hl' => \Drupal::service('language_manager')->getCurrentLanguage()->getId()], 'absolute' => TRUE])->toString()), '[testReCaptchaOnLoginForm]: Fallback URL with IFRAME has been found.');
 
     // Check that data-size attribute does not exists.
     $this->config('recaptcha.settings')->set('widget.size', '')->save();
