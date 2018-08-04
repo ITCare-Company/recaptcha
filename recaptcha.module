@@ -170,6 +170,7 @@ function recaptcha_captcha_validation($solution, $response, $element, $form_stat
       'missing-input-response' => t('The response parameter is missing.'),
       'invalid-input-response' => t('The response parameter is invalid or malformed.'),
       'invalid-json' => t('The json response is invalid or malformed.'),
+      'bad-connection' => t('The network connection failed.'),
       'unknown' => t('Unknown error.'),
     ];
     foreach ($resp->getErrorCodes() as $code) {
