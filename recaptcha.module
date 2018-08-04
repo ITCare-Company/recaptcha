@@ -165,13 +165,19 @@ function recaptcha_captcha_validation($solution, $response, $element, $form_stat
   else {
     // Error code reference, https://developers.google.com/recaptcha/docs/verify
     $error_codes = [
-      'missing-input-secret' => t('The secret parameter is missing.'),
+      'action-mismatch' => t('Expected action did not match.'),
+      'apk_package_name-mismatch' => t('Expected APK package name did not match.'),
+      'bad-connection' => t('Could not connect to service.'),
+      'bad-response' => t('Did not receive a 200 from the service.'),
+      'challenge-timeout' => t('Challenge timeout.'),
+      'invalid-input-response' => t('The response parameter is invalid or malformed.'),
       'invalid-input-secret' => t('The secret parameter is invalid or malformed.'),
       'missing-input-response' => t('The response parameter is missing.'),
-      'invalid-input-response' => t('The response parameter is invalid or malformed.'),
+      'missing-input-secret' => t('The secret parameter is missing.'),
+      'hostname-mismatch' => t('Expected hostname did not match.'),
       'invalid-json' => t('The json response is invalid or malformed.'),
-      'bad-connection' => t('The network connection failed.'),
-      'unknown' => t('Unknown error.'),
+      'score-threshold-not-met' => t('Score threshold not met.'),
+      'unknown-error' => t('Not a success, but no error codes received!'),
     ];
     foreach ($resp->getErrorCodes() as $code) {
       if (!isset($error_codes[$code])) {
