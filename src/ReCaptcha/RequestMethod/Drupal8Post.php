@@ -30,7 +30,7 @@ class Drupal8Post implements RequestMethod {
       'body' => $params->toQueryString(),
       // Stop firing exception on response status code >= 300.
       // See http://docs.guzzlephp.org/en/stable/handlers-and-middleware.html
-      'http_errors' = FALSE,
+      'http_errors' => FALSE,
     ];
 
     $response = \Drupal::httpClient()->post(ReCaptcha::SITE_VERIFY_URL, $options);
