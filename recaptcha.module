@@ -167,10 +167,10 @@ function recaptcha_captcha_validation($solution, $response, $element, $form_stat
     $error_codes = [
       'action-mismatch' => t('Expected action did not match.'),
       'apk_package_name-mismatch' => t('Expected APK package name did not match.'),
-      'bad-connection' => t('Could not connect to service.'),
       'bad-response' => t('Did not receive a 200 from the service.'),
       'bad-request' => t('The request is invalid or malformed.'),
       'challenge-timeout' => t('Challenge timeout.'),
+      'connection-failed' => t('Could not connect to service.'),
       'invalid-input-response' => t('The response parameter is invalid or malformed.'),
       'invalid-input-secret' => t('The secret parameter is invalid or malformed.'),
       'missing-input-response' => t('The response parameter is missing.'),
