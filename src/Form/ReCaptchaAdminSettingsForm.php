@@ -61,7 +61,7 @@ class ReCaptchaAdminSettingsForm extends ConfigFormBase {
       '#title' => $this->t('Local domain name validation'),
       '#type' => 'checkbox',
     ];
-    
+
     // Widget configurations.
     $form['widget'] = [
       '#type' => 'details',

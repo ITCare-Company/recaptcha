@@ -2,7 +2,6 @@
 
 namespace ReCaptcha\RequestMethod;
 
-use GuzzleHttp\Exception\RequestException;
 use ReCaptcha\ReCaptcha;
 use ReCaptcha\RequestMethod;
 use ReCaptcha\RequestParameters;
