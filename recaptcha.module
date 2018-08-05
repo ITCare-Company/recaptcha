@@ -182,7 +182,7 @@ function recaptcha_captcha_validation($solution, $response, $element, $form_stat
     ];
     foreach ($resp->getErrorCodes() as $code) {
       if (!isset($error_codes[$code])) {
-        $code = 'unknown';
+        $code = 'unknown-error';
       }
       \Drupal::logger('reCAPTCHA web service')->error('@error', ['@error' => $error_codes[$code]]);
     }
