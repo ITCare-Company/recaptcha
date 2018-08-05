@@ -145,13 +145,21 @@ function recaptcha_captcha($op, $captcha_type = '') {
  * CAPTCHA Callback; Validates the reCAPTCHA code.
  */
 function recaptcha_captcha_validation($solution, $response, $element, $form_state) {
-  $recaptcha_secret_key = \Drupal::config('recaptcha.settings')->get('secret_key');
+  $config = \Drupal::config('recaptcha.settings');
+
+  $recaptcha_secret_key = $config->get('secret_key');
   if (empty($_POST['g-recaptcha-response']) || empty($recaptcha_secret_key)) {
     return FALSE;
   }
 
   // Use Drupal::httpClient() to circumvent all issues with the Google library.
   $recaptcha = new \ReCaptcha\ReCaptcha($recaptcha_secret_key, new \ReCaptcha\RequestMethod\Drupal8Post());
+
+  // Ensures the hostname matches. Required if "Domain Name Validation" is
+  // disabled for credentials.
+  if ($config->get('verify_hostname')) {
+    $recaptcha->setExpectedHostname($_SERVER['SERVER_NAME']);
+  }
 
   $resp = $recaptcha->verify(
     $_POST['g-recaptcha-response'],

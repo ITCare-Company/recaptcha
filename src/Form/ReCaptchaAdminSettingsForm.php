@@ -55,6 +55,13 @@ class ReCaptchaAdminSettingsForm extends ConfigFormBase {
       '#type' => 'textfield',
     ];
 
+    $form['general']['recaptcha_verify_hostname'] = [
+      '#default_value' => $config->get('verify_hostname'),
+      '#description' => $this->t('Checks the hostname on your server when verifying a solution. Enable this validation only, if <em>Verify the origin of reCAPTCHA solutions</em> is unchecked for your key pair. Provides crucial security by verifying requests come from one of your listed domains.'),
+      '#title' => $this->t('Local domain name validation'),
+      '#type' => 'checkbox',
+    ];
+    
     // Widget configurations.
     $form['widget'] = [
       '#type' => 'details',
@@ -117,6 +124,7 @@ class ReCaptchaAdminSettingsForm extends ConfigFormBase {
     $config
       ->set('site_key', $form_state->getValue('recaptcha_site_key'))
       ->set('secret_key', $form_state->getValue('recaptcha_secret_key'))
+      ->set('verify_hostname', $form_state->getValue('recaptcha_verify_hostname'))
       ->set('widget.theme', $form_state->getValue('recaptcha_theme'))
       ->set('widget.type', $form_state->getValue('recaptcha_type'))
       ->set('widget.size', $form_state->getValue('recaptcha_size'))

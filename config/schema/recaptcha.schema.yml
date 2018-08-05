@@ -10,6 +10,9 @@ recaptcha.settings:
     secret_key:
       type: string
       label: 'Secret key'
+    verify_hostname:
+      type: boolean
+      label: 'Local domain name validation'
     widget:
       type: mapping
       label: 'Widget settings'

@@ -1,5 +1,6 @@
 site_key: ''
 secret_key: ''
+verify_hostname: false
 widget:
   theme: 'light'
   type: 'image'
