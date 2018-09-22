@@ -62,6 +62,13 @@ class ReCaptchaAdminSettingsForm extends ConfigFormBase {
       '#type' => 'checkbox',
     ];
 
+    $form['general']['recaptcha_use_globally'] = [
+      '#default_value' => $config->get('use_globally'),
+      '#description' => $this->t('Enable this in circumstances when "www.google.com" is not accessible, e.g. China.'),
+      '#title' => $this->t('Use reCAPTCHA globally'),
+      '#type' => 'checkbox',
+    ];
+
     // Widget configurations.
     $form['widget'] = [
       '#type' => 'details',
@@ -125,6 +132,7 @@ class ReCaptchaAdminSettingsForm extends ConfigFormBase {
       ->set('site_key', $form_state->getValue('recaptcha_site_key'))
       ->set('secret_key', $form_state->getValue('recaptcha_secret_key'))
       ->set('verify_hostname', $form_state->getValue('recaptcha_verify_hostname'))
+      ->set('use_globally', $form_state->getValue('recaptcha_use_globally'))
       ->set('widget.theme', $form_state->getValue('recaptcha_theme'))
       ->set('widget.type', $form_state->getValue('recaptcha_type'))
       ->set('widget.size', $form_state->getValue('recaptcha_size'))
