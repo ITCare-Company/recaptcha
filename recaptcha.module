@@ -218,4 +218,3 @@ function template_preprocess_recaptcha_widget_noscript(&$variables) {
   $variables['language'] = $variables['widget']['language'];
   $variables['url']      = Url::fromUri($variables['widget']['recaptcha_src_fallback'], ['query' => ['k' => $variables['widget']['sitekey'], 'hl' => $variables['widget']['language']], 'absolute' => TRUE])->toString();
 }
-?>
