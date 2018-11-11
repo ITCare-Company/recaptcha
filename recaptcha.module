@@ -5,6 +5,8 @@
  * Verifies if user is a human without necessity to solve a CAPTCHA.
  */
 
+use ReCaptcha\RequestMethod\Drupal8Post;
+use ReCaptcha\ReCaptcha;
 use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\Core\Template\Attribute;
 use Drupal\Core\Url;
@@ -163,7 +165,7 @@ function recaptcha_captcha_validation($solution, $response, $element, $form_stat
   }
 
   // Use Drupal::httpClient() to circumvent all issues with the Google library.
-  $recaptcha = new \ReCaptcha\ReCaptcha($recaptcha_secret_key, new \ReCaptcha\RequestMethod\Drupal8Post());
+  $recaptcha = new ReCaptcha($recaptcha_secret_key, new Drupal8Post());
 
   // Ensures the hostname matches. Required if "Domain Name Validation" is
   // disabled for credentials.
@@ -214,7 +216,7 @@ function recaptcha_captcha_validation($solution, $response, $element, $form_stat
  * @see recaptcha-widget-noscript.tpl.php
  */
 function template_preprocess_recaptcha_widget_noscript(&$variables) {
-  $variables['sitekey']  = $variables['widget']['sitekey'];
+  $variables['sitekey'] = $variables['widget']['sitekey'];
   $variables['language'] = $variables['widget']['language'];
-  $variables['url']      = Url::fromUri($variables['widget']['recaptcha_src_fallback'], ['query' => ['k' => $variables['widget']['sitekey'], 'hl' => $variables['widget']['language']], 'absolute' => TRUE])->toString();
+  $variables['url'] = Url::fromUri($variables['widget']['recaptcha_src_fallback'], ['query' => ['k' => $variables['widget']['sitekey'], 'hl' => $variables['widget']['language']], 'absolute' => TRUE])->toString();
 }
