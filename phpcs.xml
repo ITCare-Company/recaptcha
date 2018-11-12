@@ -1,17 +1,8 @@
 <?xml version="1.0"?>
 <ruleset name="reCAPTCHA for Drupal">
   <description>reCAPTCHA for Drupal PHP_CodeSniffer standards overrides.</description>
-
   <file>.</file>
-
-  <!-- Set ignore extensions. -->
-  <!-- @see https://www.drupal.org/node/2867601#comment-12075633 -->
-  <arg name="ignore" value="*.css,*.md,*.txt"/>
-
-  <!-- Use colors in output. -->
-  <arg name="colors"/>
-  <!-- Show progress. -->
-  <arg value="p"/>
+  <arg name="extensions" value="inc,install,module,php,profile,test,theme,yml"/>
 
   <!-- Include existing standards. -->
   <rule ref="Drupal"/>
