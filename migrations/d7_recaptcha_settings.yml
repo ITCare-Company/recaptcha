@@ -13,12 +13,14 @@ source:
     - recaptcha_tabindex
     - recaptcha_theme
     - recaptcha_type
+    - recaptcha_use_globally
     - recaptcha_verify_hostname
   source_module: recaptcha
 process:
   site_key: recaptcha_site_key
   secret_key: recaptcha_secret_key
   verify_hostname: recaptcha_verify_hostname
+  use_globally: recaptcha_use_globally
   'widget/theme': recaptcha_theme
   'widget/type': recaptcha_type
   'widget/size': recaptcha_size
