@@ -1,2 +1,10 @@
 /recaptcha-php/examples
 /recaptcha-php/tests
+/recaptcha-php/.travis.yml
+/recaptcha-php/app.yaml
+/recaptcha-php/ARCHITECTURE.md
+/recaptcha-php/composer.json
+/recaptcha-php/CONTRIBUTING.md
+/recaptcha-php/LICENSE
+/recaptcha-php/phpunit.xml.dist
+/recaptcha-php/README.md
