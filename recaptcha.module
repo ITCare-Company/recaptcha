@@ -5,11 +5,11 @@
  * Verifies if user is a human without necessity to solve a CAPTCHA.
  */
 
-use ReCaptcha\ReCaptcha;
 use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\Core\Template\Attribute;
 use Drupal\Core\Url;
 use Drupal\recaptcha\ReCaptcha\RequestMethod\Drupal8Post;
+use ReCaptcha\ReCaptcha;
 
 /**
  * Implements hook_help().
@@ -123,7 +123,15 @@ function recaptcha_captcha($op, $captcha_type = '') {
                   [
                     '#tag' => 'script',
                     '#attributes' => [
-                      'src' => Url::fromUri($recaptcha_src, ['query' => ['hl' => \Drupal::service('language_manager')->getCurrentLanguage()->getId()], 'absolute' => TRUE])->toString(),
+                      'src' => Url::fromUri(
+                        $recaptcha_src,
+                        [
+                          'query' => [
+                            'hl' => \Drupal::service('language_manager')->getCurrentLanguage()->getId(),
+                          ],
+                          'absolute' => TRUE,
+                        ]
+                      )->toString(),
                       'async' => TRUE,
                       'defer' => TRUE,
                     ],
@@ -219,5 +227,12 @@ function recaptcha_captcha_validation($solution, $response, $element, $form_stat
 function template_preprocess_recaptcha_widget_noscript(&$variables) {
   $variables['sitekey'] = $variables['widget']['sitekey'];
   $variables['language'] = $variables['widget']['language'];
-  $variables['url'] = Url::fromUri($variables['widget']['recaptcha_src_fallback'], ['query' => ['k' => $variables['widget']['sitekey'], 'hl' => $variables['widget']['language']], 'absolute' => TRUE])->toString();
+  $options = [
+    'query' => [
+      'k' => $variables['widget']['sitekey'],
+      'hl' => $variables['widget']['language'],
+    ],
+    'absolute' => TRUE,
+  ];
+  $variables['url'] = Url::fromUri($variables['widget']['recaptcha_src_fallback'], $options)->toString();
 }

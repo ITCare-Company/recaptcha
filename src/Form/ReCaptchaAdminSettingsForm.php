@@ -4,7 +4,6 @@ namespace Drupal\recaptcha\Form;
 
 use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\Core\Url;
 
 /**
  * Configure reCAPTCHA settings for this site.
