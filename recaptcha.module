@@ -159,9 +159,11 @@ function recaptcha_captcha($op, $captcha_type = '') {
  */
 function recaptcha_captcha_validation($solution, $response, $element, $form_state) {
   $config = \Drupal::config('recaptcha.settings');
+  $request_stack = \Drupal::service('request_stack');
 
+  $recaptcha_response = $request_stack->getCurrentRequest()->request->get('g-recaptcha-response');
   $recaptcha_secret_key = $config->get('secret_key');
-  if (empty($_POST['g-recaptcha-response']) || empty($recaptcha_secret_key)) {
+  if (empty($recaptcha_response) || empty($recaptcha_secret_key)) {
     return FALSE;
   }
 
@@ -175,7 +177,7 @@ function recaptcha_captcha_validation($solution, $response, $element, $form_stat
   }
 
   $resp = $recaptcha->verify(
-    $_POST['g-recaptcha-response'],
+    $recaptcha_response,
     \Drupal::request()->getClientIp()
   );
 
