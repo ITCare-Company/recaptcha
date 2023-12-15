@@ -76,7 +76,6 @@ function recaptcha_captcha($op, $captcha_type = '') {
           $captcha['captcha_validate'] = 'recaptcha_captcha_validation';
           $captcha['form']['captcha_response'] = [
             '#type' => 'hidden',
-            '#value' => 'Google no captcha',
           ];
 
           // As the validate callback does not depend on sid or solution, this
