@@ -8,7 +8,6 @@
 use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\Core\Template\Attribute;
 use Drupal\Core\Url;
-use Drupal\recaptcha\ReCaptcha\RequestMethod\Drupal8Post;
 use ReCaptcha\ReCaptcha;
 
 /**
@@ -167,7 +166,8 @@ function recaptcha_captcha_validation($solution, $response, $element, $form_stat
   }
 
   // Use Drupal::httpClient() to circumvent all issues with the Google library.
-  $recaptcha = new ReCaptcha($recaptcha_secret_key, new Drupal8Post());
+  $drupal8post = Drupal::service('recaptcha.drupal8post');
+  $recaptcha = new ReCaptcha($recaptcha_secret_key, $drupal8post);
 
   // Ensures the hostname matches. Required if "Domain Name Validation" is
   // disabled for credentials.

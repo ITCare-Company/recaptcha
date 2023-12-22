@@ -21,6 +21,6 @@ class ValidateD7MigrationStateTest extends MigrateDrupal7TestBase {
   /**
    * {@inheritdoc}
    */
-  public static $modules = ['recaptcha'];
+  protected static $modules = ['recaptcha'];
 
 }
