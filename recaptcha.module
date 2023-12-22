@@ -172,7 +172,7 @@ function recaptcha_captcha_validation($solution, $response, $element, $form_stat
   // Ensures the hostname matches. Required if "Domain Name Validation" is
   // disabled for credentials.
   if ($config->get('verify_hostname')) {
-    $recaptcha->setExpectedHostname($_SERVER['SERVER_NAME']);
+    $recaptcha->setExpectedHostname(\Drupal::request()->getHost());
   }
 
   $resp = $recaptcha->verify(
