@@ -26,7 +26,7 @@ function recaptcha_help($route_name, RouteMatchInterface $route_match) {
       $output .= '</dl>';
       $output .= '<h3>' . t('Configuration') . '</h3>';
       $output .= '<ol>';
-      $output .= '<li>' . t('Enable reCAPTCHA and CAPTCHA modules in Adminstration > Extend') . '</li>';
+      $output .= '<li>' . t('Enable reCAPTCHA and CAPTCHA modules in Administration > Extend') . '</li>';
       $output .= '<li>' . t('You will now find a reCAPTCHA tab in the CAPTCHA administration page available at: Administration > Configuration > People > CAPTCHA module settings > reCAPTCHA') . '</li>';
       $output .= '<li>' . t('Register your web site at <a href=":url">https://www.google.com/recaptcha/admin/create</a>', [':url' => 'https://www.google.com/recaptcha/admin/create']) . '</li>';
       $output .= '<li>' . t('Input the site and private keys into the reCAPTCHA settings.') . '</li>';
